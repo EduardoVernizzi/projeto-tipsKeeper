@@ -1,4 +1,4 @@
-/* RESET E BASE */
+
 * {
   margin: 0;
   padding: 0;
@@ -143,7 +143,7 @@ form button:hover{
   white-space: pre-wrap;
 }
 
-.note button {
+.btn-delete {
   position: relative;
   float: right;
   margin-right: 10px;
@@ -156,8 +156,25 @@ form button:hover{
   outline: none;
 }
 
-.note button:hover {
+.btn-delete:hover {
   background-color: #f8a2a2;
+}
+
+.btn-checked {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  background-color: #bbffbb;
+  border: none;
+  width: auto;
+  padding: 2px;
+  height: auto;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-checked:hover {
+  background-color: #7cff7c;
 }
 
 

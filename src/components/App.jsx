@@ -11,15 +11,32 @@ function App() {
 
   const [notes, setNotes] = useState([])
 
-  function addNote(newNotes) {
-    setNotes((prevNotes) => {
-      return [...prevNotes, newNotes]
-    })
+  function addNote(newNote) {
+    const noteWithChecked = {
+      ...newNote,
+      checked: false
+    };
+    setNotes(prevNotes => [...prevNotes, noteWithChecked]);
   }
 
   function deleteNote(indexToDelete) {
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => index !== indexToDelete);
+    });
+  }
+
+  function checkedNote(indexToChecked) {
+    setNotes((prevNotes) => {
+      return prevNotes.map((note, index) => {
+        if (index === indexToChecked) {
+          return {
+            ...note,
+            checked: !note.checked
+          };
+        } else {
+          return note; 
+        }
+      });
     });
   }
 
@@ -34,8 +51,10 @@ function App() {
             key={index}
             id={index}
             title={noteItem.title}
+            checked={noteItem.checked}  
             content={noteItem.content}
             onDelete={deleteNote}
+            onClick={checkedNote}
           />
         ))}
       </div>
